@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class NewBehaviourScript : MonoBehaviour
+public class RigidBodySleep : MonoBehaviour
 {
     private int sleepCountdown = 4;
     private Rigidbody rigid;
