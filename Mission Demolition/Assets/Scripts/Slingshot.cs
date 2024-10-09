@@ -20,7 +20,7 @@ public class Slingshot : MonoBehaviour
 
     private void Awake()
     {
-        Transform launchPointTrans = transform.Find("LaunchPoint");
+        Transform launchPointTrans = transform.Find("launchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
         launchPos = launchPointTrans.position;
@@ -75,7 +75,6 @@ public class Slingshot : MonoBehaviour
             projRB.collisionDetectionMode = CollisionDetectionMode.Continuous;
             projRB.velocity = -mouseDelta * velocityMult;
             FollowCam.POI = projectile;
-            projectile = null;
             Instantiate<GameObject>(projLinePrefab, projectile.transform);
             projectile = null;
         }
