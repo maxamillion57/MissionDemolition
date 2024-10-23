@@ -45,7 +45,7 @@ public class Slingshot : MonoBehaviour
 
         projectile.transform.position = launchPos;
 
-        projectile.GetComponent<Rigidbody>().isKinematic = true;
+        projectile.GetComponent<Rigidbody>().isKinematic = false ;
     }
 
     void Update()
@@ -74,9 +74,15 @@ public class Slingshot : MonoBehaviour
             projRB.isKinematic = false;
             projRB.collisionDetectionMode = CollisionDetectionMode.Continuous;
             projRB.velocity = -mouseDelta * velocityMult;
+
+            FollowCam.SWITCH_VIEW(FollowCam.eView.slingshot);
             FollowCam.POI = projectile;
+
             Instantiate<GameObject>(projLinePrefab, projectile.transform);
             projectile = null;
+            MissionDemolition.SHOT_FIRED();
+
+ 
         }
 
     }
